@@ -42,7 +42,7 @@ def get_db():
         Please prevent the program from waiting indefinitely by setting the
         write concern timeout limit to 2500 milliseconds.
         """
-        
+
         db = g._database = MongoClient(
         MFLIX_DB_URI,
         # DONE: Connection Pooling
@@ -295,7 +295,7 @@ def get_movie(id):
         movie = db.movies.aggregate(pipeline).next()
         return movie
 
-    # TODO: Error Handling
+    # DONE: Error Handling
     # If an invalid ID is passed to `get_movie`, it should return None.
     except (StopIteration) as _:
 
@@ -308,6 +308,11 @@ def get_movie(id):
         """
 
         return None
+
+    except (InvalidId) as e:
+        
+        return None
+
 
     except Exception as e:
         return {}
