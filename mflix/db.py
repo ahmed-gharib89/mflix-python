@@ -42,6 +42,7 @@ def get_db():
         Please prevent the program from waiting indefinitely by setting the
         write concern timeout limit to 2500 milliseconds.
         """
+        
         db = g._database = MongoClient(
         MFLIX_DB_URI,
         # DONE: Connection Pooling
