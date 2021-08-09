@@ -1,2 +1,9 @@
 ^.
 .vscode
+.ini
+.cache/
+mflix/__pycache__/
+mflix/api/__pycache__/
+notebooks/.ipynb_checkpoints/
+tests/__pycache__/
+__pycache__

@@ -1,3 +1,4 @@
+#!/home/ribo/anaconda3/envs/mflix/bin/python
 from mflix.factory import create_app
 
 import os
