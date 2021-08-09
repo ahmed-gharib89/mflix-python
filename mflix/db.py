@@ -196,7 +196,7 @@ def build_query_sort_project(filters):
 
             # TODO: Text and Subfield Search
             # Construct a query that will search for the chosen genre.
-            query = {}
+            query = {"genres": {"$in": filters["genres"]}}
 
     return query, sort, project
 
@@ -236,8 +236,8 @@ def get_movies(filters, page, movies_per_page):
 
     # TODO: Paging
     # Use the cursor to only return the movies that belong on the current page.
-    movies = cursor.limit(movies_per_page)
-
+    movies = cursor.skip(page * movies_per_page).limit(movies_per_page)
+    # print(list(movies), total_num_movies)
     return (list(movies), total_num_movies)
 
 
